@@ -7,6 +7,7 @@
 <title>管理者画面</title>
 </head>
 <body>
+<h1> 管理者ログイン</h1>
 
 </body>
 </html>
