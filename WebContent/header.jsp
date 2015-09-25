@@ -26,7 +26,7 @@
 	</p></noscript>
 	<header>
 	<!-- ↓ロゴ画像↓ -->
-	<h1><a href="index.html"><img src="img/logo.gif" alt="SUGUKURU" width="378" height="79"></a></h1>
+	<h1><a href="index.jsp"><img src="img/logo.gif" alt="SUGUKURU" width="378" height="79"></a></h1>
 	<!-- ↓ログイン・新規会員登録↓ -->
 	<p><a href="#">ログイン</a> <a href="#">新規会員登録</a></p>
 	</header>
