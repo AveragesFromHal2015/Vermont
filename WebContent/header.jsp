@@ -5,13 +5,9 @@
 <head>
 	<meta charset="UTF-8">
 	<!-- ↓ページタイトル↓ -->
-	<title><%= request.getParameter("title") %></title>
-	<!-- ↓検索エンジン用ここから↓ -->
-	<meta name="Description" content="検索用文言">
-	<meta name="Keywords" content="検索用キーワードカンマ（,）区切り">
-	<!-- ↑検索エンジン用ここまで↑-->
+	<title><%= request.getParameter("title") %> | すぐくる</title>
 	<link rel="stylesheet" href="common/css/common.css" type="text/css">
-	<link rel="stylesheet" href="common/css/index.css" type="text/css">
+	<link rel="stylesheet" href="common/css/<%= request.getParameter("filename") %>.css" type="text/css">
 	<script type="text/javascript" src="common/js/jquery.min.js"></script>
 	<script type="text/javascript" src="common/js/jquery.flatheights.js"></script>
 	<script>
