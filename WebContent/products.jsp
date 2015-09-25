@@ -171,5 +171,5 @@ Internet Explorer 7／8をお使いの方はJavaScriptをオンにしてご覧�
 
 <jsp:include page="navigation.jsp"></jsp:include>
 <jsp:include page="footer.jsp">
-	<jsp:param value="title" name="管理者画面"/>
+	<jsp:param name="title" value="管理者画面"/>
 </jsp:include>

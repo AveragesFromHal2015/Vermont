@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>    
 <jsp:include page="header.jsp">
-	<jsp:param value="title" name="すぐくるTOP"/>
-	<jsp:param value="filename" name="index"/>
+	<jsp:param name="title" value="すぐくるTOP"/>
+	<jsp:param name="filename" value="index"/>
 </jsp:include>
 <div id="contents">
 
@@ -117,5 +118,5 @@
 </div>
 <jsp:include page="navigation.jsp"></jsp:include>
 <jsp:include page="footer.jsp">
-	<jsp:param value="title" name="管理者画面"/>
+	<jsp:param name="title" value="管理者画面"/>
 </jsp:include>
