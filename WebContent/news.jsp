@@ -1,36 +1,9 @@
-<!DOCTYPE HTML>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-
-<!-- ↓ページタイトル↓ -->
-<title>ニュース一覧｜STATIONERY</title>
-
-<!-- ↓検索エンジン用ここから↓ -->
-<meta name="Description" content="検索用文言">
-<meta name="Keywords" content="検索用キーワードカンマ（,）区切り">
-<!-- ↑検索エンジン用ここまで↑-->
-<link rel="stylesheet" href="common/css/common.css" type="text/css">
-<link rel="stylesheet" href="common/css/news.css" type="text/css">
-
-<!--[if lt IE 9]>
-<script src="common/js/html5shiv.js"></script>
-<![endif]-->
-</head>
-
-<body id="top">
-<noscript><p id="noscript">このWebサイトはJavaScriptを使用しています。<!--[if lt IE 9]><br>
-Internet Explorer 7／8をお使いの方はJavaScriptをオンにしてご覧ください。<![endif]-->
-</p></noscript>
-
-<header>
-<!-- ↓ロゴ画像↓ -->
-<h1><a href="index.html"><img src="img/logo.gif" alt="STATIONERY" width="378" height="79"></a></h1>
-
-<!-- ↓キャッチコピー↓ -->
-<p>毎日快適！オフィス用品を揃えるならSTATIONERY！</p>
-</header>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<jsp:include page="header.jsp">
+	<jsp:param value="title" name="ニュース一覧"/>
+	<jsp:param value="filename" name="news"/>
+</jsp:include>
 <div id="contents">
 <section>
 <!-- ↓ページの見出し↓ -->
@@ -104,9 +77,6 @@ Internet Explorer 7／8をお使いの方はJavaScriptをオンにしてご覧�
 <!-- ↑ナビゲーションここまで↑ -->
 </div>
 
-<footer>
-<!-- ↓コピーライト↓ -->
-<small>© 2013 STATIONERY. All rights reserved.</small>
-</footer>
-</body>
-</html>
+<jsp:include page="footer.jsp">
+	<jsp:param value="title" name="管理者画面"/>
+</jsp:include>
