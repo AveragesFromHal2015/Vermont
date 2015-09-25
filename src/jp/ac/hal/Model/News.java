@@ -1,5 +1,4 @@
-import java.util.Date;
-
+package jp.ac.hal.Model;
 
 public class News {
 	
