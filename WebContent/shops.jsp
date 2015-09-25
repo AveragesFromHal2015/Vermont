@@ -153,9 +153,6 @@ Internet Explorer 7／8をお使いの方はJavaScriptをオンにしてご覧�
 <!-- ↑ナビゲーションここまで↑ -->
 </div>
 
-<footer>
-<!-- ↓コピーライト↓ -->
-<small>© 2013 STATIONERY. All rights reserved.</small>
-</footer>
-</body>
-</html>
+<jsp:include page="footer.jsp">
+	<jsp:param value="title" name="管理者画面"/>
+</jsp:include>
