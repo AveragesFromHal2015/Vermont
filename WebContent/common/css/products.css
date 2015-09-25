@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/*products.html専用
+-----------------------------------------*/
+#navigation nav > ul > li > a[href="products.html"] {
+color: #FFF;
+background: #4D4D4D url(../img/menu1.gif) no-repeat 7px 13px;
+}
+
+/*products
+-----------------------------------------*/
+section > h1 {
+background-image: url(../img/icon_products.gif);
+border-bottom: 4px solid #900;
+}
+
+article {
+width: 150px;
+float: left;
+margin: 0 -4px 15px 18px;
+}
+
+article h1 {
+font-size: 14px;
+font-weight: bold;
+margin-bottom: 3px;
+background: url(../img/icon_products_a.gif) no-repeat left 1px;
+padding-left: 15px;
+}
+article p {
+font-size: 12px;
+color: #666;
+}
+
+section > p {/*↑このページのはじめに戻る*/
+text-align: right;
+clear: both;
+margin: 0 30px 45px;
+}
+
+
+
+
+
+

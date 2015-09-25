@@ -1,0 +1,304 @@
+@charset "UTF-8";
+
+/*全ページ共通
+-----------------------------------------*/
+* {
+margin: 0;
+padding: 0;
+}
+li {
+list-style: none;
+}
+a img {
+border: none;
+}
+html {
+background: #F8F8EC;
+height: 100%;
+}
+body {
+font-size: 14px;
+color: #333;
+line-height: 1.2;
+font-family: "Hiragino Kaku Gothic Pro","メイリオ","ＭＳ Ｐゴシック",sans-serif;
+width: 998px;
+padding: 0 1px;
+min-height: 100%;
+position: relative;
+margin: 0 auto;
+background: #F0EEDF url(../img/page_back.png);
+}
+body:after {
+content: "";
+display: block;
+width: 198px;
+height: 695px;
+background: url(../img/nav_back.png) repeat-x;
+position: absolute;
+bottom: 0;
+left: 51px;
+z-index: 1;
+}
+a {
+color: #00F;
+}
+a:hover {
+color: #006;
+}
+hr, .clear {
+border: none;
+height: 0;
+overflow: hidden;
+clear: both;
+}
+header, footer, section, article, figure ,figcaption {
+display: block;
+}
+
+/*ヘッダー
+-----------------------------------------*/
+body header {
+height: 90px;
+position: relative;
+background: #FFF;
+border-bottom: 6px solid #4D4D4D;
+}
+
+/*ロゴ周り*/
+body header h1 {
+position: absolute;
+top: 3px;
+left: 50px;
+font-family: sans-serif;
+font-weight: normal;
+color: #000;
+font-size: 50px;
+z-index: 2;
+}
+body header h1 + p {
+position: absolute;
+top: 40px;
+right: 51px;
+color: #2C2728;
+}
+body header h1 a {
+text-decoration: none;
+color: #000;
+}
+body header h1 a:hover {
+color: #000;
+}
+
+body header p a {
+text-decoration: none;
+color: #00F;
+}
+
+body header p a:hover {
+text-decoration: none;
+color: #006;
+}
+
+/*フッター
+-----------------------------------------*/
+footer {
+clear: both;
+height: 75px;
+}
+footer small {
+display: block;
+font-size: 10px;
+text-align: right;
+padding: 10px;
+height: 55px;
+width: 660px;
+position: absolute;
+bottom: 0;
+right: 45px;
+font-family: Arial,"Hiragino Kaku Gothic Pro","メイリオ","ＭＳ Ｐゴシック",sans-serif;
+color: #666;
+border-top: 1px solid #B1B1B1;
+}
+
+/*noscript
+-----------------------------------------*/
+p#noscript {
+width: 80%;
+padding: 30px;
+margin: 0 auto;
+color: red;
+font-weight: bold;
+}
+
+/*複数ページで使用
+-----------------------------------------
+-----------------------------------------*/
+
+/*カラム
+-----------------------------------------*/
+#navigation {
+width: 198px;
+float: left;
+margin: 0 0 0 50px;
+padding: 15px 0 50px;
+position: relative;
+bottom: 0;
+z-index: 3;
+}
+
+#contents {
+margin: 0 48px 50px 0;
+padding: 15px 0 0;
+width: 680px;
+float: right;
+position: relative;
+z-index: 3;
+}
+
+#contents:after {
+content: "";
+display: block;
+clear: both;
+}
+
+*+html #contents {
+min-height: 1px;
+}
+
+
+/*navigation
+-----------------------------------------*/
+#navigation nav > ul {
+border: 1px solid #999;
+border-bottom: none;
+margin: 0 -1px;
+background: url(../img/menu_back.png) left;
+}
+#navigation nav > ul > li {
+border-bottom: 1px solid #999;
+position: relative;
+}
+#navigation nav > ul > li a {
+display: block;
+padding: 15px 20px;
+text-decoration: none;
+font-weight: bold;
+white-space: nowrap;
+color: #000;
+background: url(../img/menu2.gif) no-repeat 7px 13px;
+}
+#navigation nav > ul > li:hover {
+background:;
+}
+#navigation nav > ul > li:hover > a {
+color: #FFF;
+background: #4D4D4D url(../img/menu1.gif) no-repeat 7px 13px;
+}
+
+#navigation nav ul ul {
+display: none;
+}
+#navigation nav ul li:hover ul {
+display: block;
+position: absolute;
+left: 199px;
+top: 0;
+min-width: 145px;
+}
+#navigation nav ul li:hover ul li {
+background: #333;
+border-bottom: 1px solid #FFF;
+opacity: .8;
+}
+#navigation nav ul ul li a,
+#navigation nav ul li:hover ul a {
+color: #FFF;
+font-weight: normal;
+background: none;
+}
+#navigation nav ul li:hover ul li:hover {
+background: #a00;
+}
+
+/*ページ内容
+-----------------------------------------*/
+#contents {
+width: 680px;
+float: right;
+position: relative;
+}
+#contents:after {
+content: "";
+display: block;
+clear: both;
+}
+*+html #contents {
+min-height: 1px;
+}
+section:after {
+content: "";
+display: block;
+clear: both;
+}
+*+html section {
+min-height: 1px;
+border-bottom: 1px solid #CCC;
+}
+section {
+background: #FFF url(../img/kadomaru1.gif) repeat-y left bottom;
+padding: 0 1px 25px 1px;
+border-top: 1px solid #CCC;
+margin-bottom: 30px;
+position: relative;
+}
+section:before {
+content: "";
+display: block;
+width: 100%;
+height: 25px;
+background: url(../img/kadomaru2.gif);
+position: absolute;
+bottom: 0;
+left: 0;
+}
+
+/*見出し
+-----------------------------------------*/
+section > h1 {
+background-color: #4D4D4D;
+background-repeat: no-repeat;
+background-position: 5px center;
+background-image: url(../img/icon_products.gif);
+border-bottom: 4px solid #900;
+font-size: 16px;
+font-weight: bold;
+color: #FFF;
+text-indent: 35px;
+height: 35px;
+line-height: 35px;
+margin-bottom: 20px;
+position: relative;
+}
+section > h1 small {
+display: block;
+position: absolute;
+top: 3px;
+right: 15px;
+display: block;
+font-size: 10px;
+font-weight: normal;
+}
+section > h1 + p {
+margin: 0 20px 20px;
+line-height: 1.6;
+}
+
+section > h2 {
+background: #DDD;
+color: #000;
+font-size: 14px;
+line-height: 1;
+padding: 5px;
+margin: 0 18px 15px;
+clear: both;
+}

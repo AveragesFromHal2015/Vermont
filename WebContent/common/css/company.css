@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/*company.html専用
+-----------------------------------------*/
+#navigation nav > ul > li > a[href="company.html"] {
+color: #FFF;
+background: #4D4D4D url(../img/menu1.gif) no-repeat 7px 13px;
+}
+
+section > h1 {
+background-image: url(../img/icon_company.gif);
+border-bottom: 4px solid #C09;
+}
+
+section article {
+margin: 0 18px 30px;
+position: relative;
+}
+
+/* 会社概要
+-----------------------------------------*/
+section > h1 + article {
+position: relative;
+min-height: 270px;
+}
+section > h1 + article img {
+position: absolute;
+top: 0;
+left: 0;
+border: 1px solid #CCC;
+padding: 5px;
+}
+section > h1 + article table {
+margin-left: 250px;
+margin-bottom: 60px;
+}
+table {
+border-spacing: 0;
+border-collapse: collapse;
+}
+
+td, th {
+border-bottom: 1px #999 solid;
+padding: 20px 0;
+vertical-align: top;
+line-height: 1.4;
+}
+
+th {
+white-space: nowrap;
+width: 1%;
+text-align: left;
+padding-right: 2em;
+}
+
+/* Map + 画像
+-----------------------------------------*/
+.map {
+position: relative;
+margin-bottom: 15px;
+}
+.map small + img {
+position: absolute;
+top: 0;
+right: 0;
+}
+.map small + img + img {
+position: absolute;
+bottom: 1.5em;
+right: 0;
+}
+
+
+/* Map情報
+-----------------------------------------*/
+dt,
+dd {
+float: left;
+padding: 10px;
+}
+dt {
+font-weight: bold;
+white-space: nowrap;
+background: url(../img/icon_company_a.gif) no-repeat 10px 15px;
+padding-left: 20px;
+}
+dd + dt {
+margin-left: 1em;
+}
+dt.newLine {
+margin-left: 0;
+clear: both;
+position: relative;
+}
+dt.newLine:before {
+content: "";
+display: block;
+width: 645px;
+border-bottom: 1px solid #FFF;
+position: absolute;
+top: 0;
+left: 0;
+}
+dl {
+background: #EAEAEA;
+}
+dl:after {
+content: "";
+display: block;
+clear: both;
+}
+*+html dl {
+min-height: 1px;
+border-bottom: none;
+}
+dl + p {
+margin: 1em 0;
+line-height: 1.6;
+}
+
+/* IE7用 */
+*+html dl {
+background: none;
+}
+*+html dd + dt{
+margin-left: 0;
+}
+*+html dd {
+width: 100%;
+margin: -15px 0 0 0;
+}
+

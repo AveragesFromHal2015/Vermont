@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/*news.html専用
+-----------------------------------------*/
+#navigation nav > ul > li > a[href="news.html"] {
+color: #FFF;
+background: #4D4D4D url(../img/menu1.gif) no-repeat 7px 13px;
+}
+
+
+/*news
+-----------------------------------------*/
+section > h1 {
+background-image: url(../img/icon_news.gif);
+border-bottom: 4px solid #10B9F1;
+}
+
+
+section article {
+margin: 0 18px 30px;
+padding: 10px;
+border: 1px solid #CCC;
+}
+section article h1 {
+font-size: 14px;
+font-weight: bold;
+padding: 0px 80px 10px 22px;
+margin: 0 -10px;
+color: #000;
+border-bottom: 1px dotted #999;
+background: url(../img/icon_news_a.gif) no-repeat 10px 4px;
+}
+
+section article p {
+font-size: 14px;
+line-height: 1.6;
+margin-bottom: 5px;
+}
+section article time {
+font-size: 10px;
+line-height: 1.1;
+text-align: right;
+display: block;
+margin: -23px 0 20px;
+}

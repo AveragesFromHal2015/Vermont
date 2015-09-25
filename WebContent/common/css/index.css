@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+/*index.html専用
+-----------------------------------------*/
+#navigation nav > ul > li > a[href="index.html"] {
+color: #FFF;
+background: #4D4D4D url(../img/menu1.gif) no-repeat 7px 13px;
+}
+
+img[width="680"] {
+border: 1px solid #000;
+margin-bottom: 20px;
+}
+/* 新商品リリース
+-----------------------------------------*/
+section#release > h1 {
+background-image: url(../img/icon_release.gif);
+border-bottom: 4px solid #FF7F5F;
+}
+
+section#release article {
+float: left;
+width: 150px;
+margin: 0 -1px 10px 16px;
+}
+section#release article img {
+margin: 0 0 5px 0;
+}
+section#release article h2,
+section#release a article h2 {
+font-size: 14px;
+line-height: 1.2;
+color: #333;
+text-decoration: none;
+background: url(../img/icon_release_a.gif) no-repeat left 1px;
+padding-left: 15px;
+margin-bottom: 3px;
+}
+section#release a:hover article h2 {
+text-decoration: underline;
+}
+section#release article p,
+section#release a article p {
+font-size: 12px;
+line-height: 1.2;
+color: #666;
+text-decoration: none;
+}
+
+
+/* ニュース
+-----------------------------------------*/
+section > h1 {
+background-image: url(../img/icon_news.gif);
+border-bottom: 4px solid #10B9F1;
+}
+
+section#news a {
+text-decoration: none;
+}
+section#news article {
+position: relative;
+margin: 0 18px 10px 18px;
+padding: 0 0 10px 90px;
+line-height: 1.2;
+border-bottom: 1px dotted #959595;
+background: url(../img/icon_news_a.gif) no-repeat 5px 3px;
+}
+section#news a article h2,
+section#news article h2 {
+font-size: 14px;
+color: #333;
+font-weight: bold;
+display: inline;
+}
+section#news a article p,
+section#news article p {
+display: inline;
+color: #333;
+}
+section#news a:hover article h2 {
+text-decoration: underline;
+}
+section#news a article time,
+section#news article time {
+position: absolute;
+top: 3px;
+left: 17px;
+font-size: 10px;
+line-height: 1;
+color: #666;
+}
+section#news a:hover article time {
+text-decoration: none;
+}
+section#news > p {
+text-align: right;
+margin: 0 20px 0 0;
+font-size: 12px;
+}
+section#news > p a {
+background: url(../img/icon_news_b.gif) no-repeat left;
+padding: 0 0 0 10px;
+color: #666;
+}
+section#news > p a:hover {
+text-decoration: underline;
+}
