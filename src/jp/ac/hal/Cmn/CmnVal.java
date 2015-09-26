@@ -15,6 +15,8 @@ public class CmnVal {
 	public static final String errMsgLoginNullMail = "メールアドレスを入力してください。";
 	public static final String errMsgLoginNullId = "IDを入力してください。";
 	public static final String errMsgLoginNullPass = "パスワードを入力してください。";
+
+	public static final String attributeMass = "message";
 	
 	//間違えないために定数化
 	public static final String FormValPassword = "password";
