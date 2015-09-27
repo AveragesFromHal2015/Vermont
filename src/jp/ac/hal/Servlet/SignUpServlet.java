@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.ac.hal.Beans.User;
 import jp.ac.hal.Cmn.CmnFnc;
 import jp.ac.hal.Cmn.CmnVal;
 import jp.ac.hal.Dao.Dao;
@@ -24,82 +25,69 @@ public class SignUpServlet extends HttpServlet {
        
  	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//変数の宣言
-		String mailAddress = "";
-		String pass = "";
 		String url = "";
 		String message = "";
 		boolean errFlg = false;
-		
-		String user_name;
-		String user_pass; //パスワード
-		String com_name; //会社名
-		String com_department; //部署名
-		int user_tel;
-		String s_user_tel;
-		int user_fax;
-		String s_user_fax;
-		String user_address; //住所*/
 
 		//データ・アクセスクラスを作る
 		Dao d ;	
 		CmnFnc c;
+		User u;
 		ArrayList<Object> user = new ArrayList<>();
+		int[] lengthcheck ={200, 40, 30, 30, 11, 11, 200};
 		
 		try{
-			user_name = request.getParameter("user_name");
-			user_pass = request.getParameter("user_pass");
-			com_name = request.getParameter("com_name");
-			com_department = request.getParameter("com_department");
-			s_user_tel = request.getParameter("user_tel");
-			s_user_fax = request.getParameter("user_fax");
-			user_address = request.getParameter("user_address");
+			
+			//Userbeanへ追加
+			u.setUser_name(request.getParameter("user_name"));
+			u.setUser_pass(request.getParameter("user_pass"));
+			u.setCom_name(request.getParameter("com_name"));
+			u.setCom_department(request.getParameter("com_department"));
+			u.setUser_tel(Integer.parseInt(request.getParameter("user_tel")));
+			u.setUser_fax(Integer.parseInt(request.getParameter("user_fax")));
+			u.setUser_address(request.getParameter("user_address"));
+			
+			//arraylistへ格納
+			user.add(u.getUser_name());
+			user.add(u.getUser_pass());
+			user.add(u.getCom_name());
+			user.add(u.getCom_department());
+			user.add(u.getUser_tel());
+			user.add(u.getUser_fax());
+			user.add(u.getUser_address());
+			
 			
 			//エラーチェック
 			//null、空白
-			errFlg = CmnFnc.isPrmErr(user_name);
-			errFlg = CmnFnc.isPrmErr(user_pass);
-			errFlg = CmnFnc.isPrmErr(com_name);
-			errFlg = CmnFnc.isPrmErr(com_department);
-			errFlg = CmnFnc.isPrmErr(s_user_tel);
-			errFlg = CmnFnc.isPrmErr(s_user_fax);
-			errFlg = CmnFnc.isPrmErr(user_address);
-			
+			for(int i=0; i < user.size() && errFlg == false; i++){
+				errFlg = CmnFnc.isPrmErr(user.get(i).toString());
+			}
 			if(errFlg){
 				message = "未入力の欄があります。";
 				url = CmnVal.errURL;
 			}
 			else{
-				
 				//文字数
-				errFlg = user_name.length() > 200;
-				errFlg = user_pass.length() > 40;
-				errFlg = com_name.length() > 30;
-				errFlg = com_department.length() > 30;
-				errFlg = s_user_tel.length() > 11;
-				errFlg = s_user_fax.length() > 11;
-				errFlg = user_address.length() > 200;
-				
+				for(int i=0; i < user.size() && errFlg == false; i++){
+					errFlg = user.get(i).toString().length() > lengthcheck[i];
+				}
 				if(errFlg){
 					message = "文字数の上限を超えている欄があります。";
 					url = CmnVal.errURL;
 				}
 				else{
-					//文字から数値へ
-					user_tel = Integer.parseInt(s_user_tel);
-					user_fax = Integer.parseInt(s_user_fax);
-					
-					user.add(user_name);
-					user.add(user_pass);
-					user.add(com_department);
-					user.add(com_name);
-					user.add(user_tel);
-					user.add(user_fax);
-					user.add(user_address);
-					
-					d.regist(user);//DBへ追加処理
+					//d.regist(user);//DBへ追加処理
 				}
 			}
 			
+		}catch(NumberFormatException e){
+			
+			//数値エラー
+			errFlg = true;
+			url = CmnVal.errURL;
+
+			//転送するMessage
+			message = "電話番号、FAXは数値を入力して下さい"+ e;
 			
 		}catch(SQLException e){
 
@@ -122,9 +110,7 @@ public class SignUpServlet extends HttpServlet {
 		}finally{
 
 			if(errFlg == false){//エラー無し
-				
 				response.sendRedirect(url);
-
 			}else{//エラーあり
 				//Messageをセット
 				request.setAttribute("errorMessage",message);
