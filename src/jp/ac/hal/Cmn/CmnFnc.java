@@ -17,10 +17,9 @@ import javax.servlet.http.HttpSession;
  */
 public class CmnFnc {
 	
-	/*
-	 * 毎回のチェックが面倒なので作りました。by hirosawa
-	 * 
-	 */
+	//　====================================	
+	//　エラーチェック系共通処理
+	//　====================================	
 	public static boolean isPrmErr(String str) {
 		return str == null || str.isEmpty();
 	}
@@ -34,6 +33,9 @@ public class CmnFnc {
 	}
 
 	
+	//　====================================	
+	//　セッション系共通処理
+	//　====================================
 	public static String getStrFromSession(HttpServletRequest request ,String str) {
 		HttpSession session = request.getSession(true);
 		return (String)session.getAttribute(str);
@@ -44,12 +46,27 @@ public class CmnFnc {
 		session.setAttribute(name, value);
 	}
 	
+	public static void deleteAllSession(HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
+		session.removeAttribute(CmnVal.FormValMail);
+		session.removeAttribute(CmnVal.FormValId);
+		session.removeAttribute(CmnVal.FormValName);		
+	}
+	
+
+	//　====================================	
+	//　エラーメッセージ系共通処理
+	//　====================================
+	
 	//エラー番号によってメッセージを返すメソッド
 	public static String errMsg(int errNum) {
 		return "";
 	}
-	
-	
+
+	//　====================================	
+	//　遷移・ログイン・ログアウト系共通処理
+	//　====================================
+
 	public static void cmnForward(HttpServletResponse response ,HttpServletRequest request,int status,String URL) throws IOException,ServletException{
 		if(isForward(status)){//エラー無し
 			response.sendRedirect(URL);
@@ -62,6 +79,13 @@ public class CmnFnc {
 			rd.forward(request,response);
 		}
 	}
+	
+	public static void cmnLogOut(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		deleteAllSession(request);
+		response.sendRedirect(CmnVal.LoginURL);
+	}
+	
+	
 
 //	private static void createCookie(HttpServletResponse response,String name,Object value) {
 //		//cookieの保存

@@ -9,6 +9,7 @@ public class CmnVal {
 	
 	//エラー時のジャンプ先URL
 	public static final String errURL = "error.jsp";
+	public static final String LoginURL = "login.jsp";
 
 	//エラーメッセージ
 	public static final String errMsgLoginFalse = "メールアドレス、もしくはパスワードが間違っています。";
@@ -22,6 +23,7 @@ public class CmnVal {
 	public static final String FormValPassword = "password";
 	public static final String FormValMail = "mailAddress";
 	public static final String FormValId = "user_id";
+	public static final String FormValName = "name";
 	
 	
 }
