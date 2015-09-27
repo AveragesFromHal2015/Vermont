@@ -39,7 +39,7 @@ public class SignUpServlet extends HttpServlet {
 		try{
 			
 			//Userbeanへ追加
-			u.setUser_name(request.getParameter("user_name"));
+			u.setUser_name(request.getParameter("user_name"));	//DBにユーザネームが無いのでDBに追加しないとダメかも
 			u.setUser_pass(request.getParameter("user_pass"));
 			u.setCom_name(request.getParameter("com_name"));
 			u.setCom_department(request.getParameter("com_department"));
