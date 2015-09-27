@@ -2,6 +2,7 @@ package jp.ac.hal.Cmn;
 
 import java.io.IOException;
 import java.rmi.ServerException;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,7 +30,7 @@ public class CmnFnc {
 	}
 	
 	public static boolean isForward(int statusCode) {
-		return statusCode < 900;
+		return statusCode < CmnVal.errCode;
 	}
 
 	
@@ -60,13 +61,19 @@ public class CmnFnc {
 	
 	//エラー番号によってメッセージを返すメソッド
 	public static String errMsg(int errNum) {
-		return "";
+		HashMap<Integer,String> mapErrMsg = new HashMap<>();
+		mapErrMsg.put(CmnVal.errCodeLoginFalse, CmnVal.errMsgLoginFalse);
+		mapErrMsg.put(CmnVal.errCodeLoginNullMail, CmnVal.errMsgLoginNullMail);
+		mapErrMsg.put(CmnVal.errCodeLoginNullId, CmnVal.errMsgLoginNullId);
+		mapErrMsg.put(CmnVal.errCodeLoginNullPass, CmnVal.errMsgLoginNullPass);
+		mapErrMsg.put(CmnVal.errCodeAccsessFalse, CmnVal.errMsgAccsessFalse);
+
+		return mapErrMsg.get(errNum);
 	}
 
 	//　====================================	
 	//　遷移・ログイン・ログアウト系共通処理
 	//　====================================
-
 	public static void cmnForward(HttpServletResponse response ,HttpServletRequest request,int status,String URL) throws IOException,ServletException{
 		if(isForward(status)){//エラー無し
 			response.sendRedirect(URL);
@@ -82,7 +89,7 @@ public class CmnFnc {
 	
 	public static void cmnLogOut(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		deleteAllSession(request);
-		response.sendRedirect(CmnVal.LoginURL);
+		response.sendRedirect(CmnVal.TopURL);
 	}
 	
 	
