@@ -6,30 +6,33 @@ import java.util.Date;
 
 public class Cart{
 	
-	private ArrayList<Product> product;
+	private ArrayList<Product> productList;
 	private Date date;
 	
-	public Cart(ArrayList<Product> product) {
-		this.product = product;
+	public Cart() {
+		this.productList = new ArrayList<Product>();
 		this.date = new Date();
 	}
 	
 	public void addCart(Product...products) {
 		for (int i = 0; i < products.length; i++) {
-			product.add(products[i]);
+			productList.add(products[i]);
 		}
 	}
 	
 	//cartから消す処理
 	
 	public ArrayList<Product> getAllCart() {
-		return product;
+		return productList;
+	}
+	
+	public void setProducts(ArrayList<Product> product) {
+		this.productList = product;
 	}
 	
 	//クッキーにセット
 	public void setCookie() {
 		
 	}
-	
 	
 }
