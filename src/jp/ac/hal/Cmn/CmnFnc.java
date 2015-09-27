@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * 共通の関数
@@ -30,6 +31,17 @@ public class CmnFnc {
 	
 	public static boolean isForward(int statusCode) {
 		return statusCode < 900;
+	}
+
+	
+	public static String getStrFromSession(HttpServletRequest request ,String str) {
+		HttpSession session = request.getSession(true);
+		return (String)session.getAttribute(str);
+	}
+	
+	public static void setStrFromSession(HttpServletRequest request ,String name , String value) {
+		HttpSession session = request.getSession(true);
+		session.setAttribute(name, value);
 	}
 	
 	//エラー番号によってメッセージを返すメソッド
