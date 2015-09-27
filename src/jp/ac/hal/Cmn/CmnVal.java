@@ -1,8 +1,5 @@
 package jp.ac.hal.Cmn;
 
-import java.util.HashMap;
-
-import com.sun.javafx.collections.MappingChange.Map;
 
 /**
  * 共通の定数
@@ -10,15 +7,15 @@ import com.sun.javafx.collections.MappingChange.Map;
  *
  */
 public class CmnVal {
-	
+
 	//エラー時のジャンプ先URL
 	public static final String errURL = "error.jsp";
 	public static final String LoginURL = "login.jsp";
 	public static final String TopURL = "index.jsp";
-	
+
 	//エラーステータスコード
 	/*
-	 * 800 ログイン時エラーメッセージ 
+	 * 800 ログイン時エラーメッセージ
 	 * 810 アクセスエラー
 	 */
 	public static final int errCode = 800;
@@ -34,12 +31,12 @@ public class CmnVal {
 	public static final String errMsgLoginNullId = "IDを入力してください。";
 	public static final String errMsgLoginNullPass = "パスワードを入力してください。";
 	public static final String errMsgAccsessFalse = "不正なアクセスです。";
-	
-	public static final String attributeMass = "message";	
+
+	public static final String attributeMass = "message";
 	//間違えないために定数化
 	public static final String FormValPassword = "password";
 	public static final String FormValMail = "mailAddress";
 	public static final String FormValId = "user_id";
 	public static final String FormValName = "name";
-		
+
 }
