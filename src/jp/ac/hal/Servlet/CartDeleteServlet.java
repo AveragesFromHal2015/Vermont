@@ -28,7 +28,7 @@ public class CartDeleteServlet extends HttpServlet {
 		if(product != null){
 			cart.deleteProduct(product);
 		}else{
-			status = CmnVal.errCodeCartFalse;
+			status = CmnVal.errCodeCartDel;
 		}
 		
 		CmnFnc.cmnForward(response, request, status, CmnVal.MessegeURL);
