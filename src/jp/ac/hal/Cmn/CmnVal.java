@@ -38,5 +38,12 @@ public class CmnVal {
 	public static final String FormValMail = "mailAddress";
 	public static final String FormValId = "user_id";
 	public static final String FormValName = "name";
+<<<<<<< HEAD
 
+=======
+	public static final String FormValProduct = "pruduct";
+	
+	public static final String SessionValCart = "cart";
+		
+>>>>>>> 68254fb9d8a88925c5d7912ac0e558d1a64e6e38
 }

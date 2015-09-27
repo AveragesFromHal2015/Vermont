@@ -2,6 +2,7 @@ package jp.ac.hal.Cmn;
 
 import java.io.IOException;
 import java.rmi.ServerException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import jp.ac.hal.Beans.Cart;
+import jp.ac.hal.Beans.Product;
 
 /**
  * 共通の関数
@@ -42,6 +46,19 @@ public class CmnFnc {
 		return (String)session.getAttribute(str);
 	}
 	
+	public static Product getProduct(HttpServletRequest request) {
+		return (Product)request.getAttribute(CmnVal.FormValProduct);
+	}
+	
+	public static Cart getSessionCart(HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
+		Cart cart = (Cart)session.getAttribute(CmnVal.SessionValCart);
+		if(cart == null){
+			cart = new Cart(new ArrayList<Product>());
+		}
+		return cart;
+	}
+	
 	public static void setStrFromSession(HttpServletRequest request ,String name , String value) {
 		HttpSession session = request.getSession(true);
 		session.setAttribute(name, value);
@@ -51,7 +68,7 @@ public class CmnFnc {
 		HttpSession session = request.getSession(true);
 		session.removeAttribute(CmnVal.FormValMail);
 		session.removeAttribute(CmnVal.FormValId);
-		session.removeAttribute(CmnVal.FormValName);		
+		session.removeAttribute(CmnVal.FormValName);
 	}
 	
 
