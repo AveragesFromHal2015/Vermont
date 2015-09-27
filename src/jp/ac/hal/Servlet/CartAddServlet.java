@@ -21,11 +21,16 @@ import jp.ac.hal.Cmn.CmnVal;
 @WebServlet("/CartAddServlet")
 public class CartAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Cart cart = CmnFnc.getSessionCart(request);
 		Product product = CmnFnc.getProduct(request);
-		cart.addCart(product);
+		int status = 0;
+		if(product != null){
+			cart.addCart(product);
+		}else{
+			status = CmnVal.errCodeCartFalse;
+		}
+		CmnFnc.cmnForward(response, request, status, CmnVal.MessegeURL);
 	}
-
 }

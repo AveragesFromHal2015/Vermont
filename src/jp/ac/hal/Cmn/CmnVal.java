@@ -12,6 +12,7 @@ public class CmnVal {
 	public static final String errURL = "error.jsp";
 	public static final String LoginURL = "login.jsp";
 	public static final String TopURL = "index.jsp";
+	public static final String MessegeURL = "msg.jsp";
 
 	//エラーステータスコード
 	/*
@@ -24,6 +25,7 @@ public class CmnVal {
 	public static final int errCodeLoginNullId = 803;
 	public static final int errCodeLoginNullPass = 804;
 	public static final int errCodeAccsessFalse = 810;
+	public static final int errCodeCartFalse = 820;
 
 	//エラーメッセージ
 	public static final String errMsgLoginFalse = "メールアドレス、もしくはパスワードが間違っています。";
@@ -31,6 +33,7 @@ public class CmnVal {
 	public static final String errMsgLoginNullId = "IDを入力してください。";
 	public static final String errMsgLoginNullPass = "パスワードを入力してください。";
 	public static final String errMsgAccsessFalse = "不正なアクセスです。";
+	public static final String errMsgCartFalse = "カート追加に失敗しました。";
 
 	public static final String attributeMass = "message";
 	//間違えないために定数化
@@ -38,12 +41,8 @@ public class CmnVal {
 	public static final String FormValMail = "mailAddress";
 	public static final String FormValId = "user_id";
 	public static final String FormValName = "name";
-<<<<<<< HEAD
-
-=======
 	public static final String FormValProduct = "pruduct";
 	
 	public static final String SessionValCart = "cart";
 		
->>>>>>> 68254fb9d8a88925c5d7912ac0e558d1a64e6e38
 }

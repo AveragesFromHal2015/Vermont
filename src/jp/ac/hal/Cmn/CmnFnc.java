@@ -54,7 +54,7 @@ public class CmnFnc {
 		HttpSession session = request.getSession(true);
 		Cart cart = (Cart)session.getAttribute(CmnVal.SessionValCart);
 		if(cart == null){
-			cart = new Cart(new ArrayList<Product>());
+			cart = new Cart();
 		}
 		return cart;
 	}
@@ -84,6 +84,7 @@ public class CmnFnc {
 		mapErrMsg.put(CmnVal.errCodeLoginNullId, CmnVal.errMsgLoginNullId);
 		mapErrMsg.put(CmnVal.errCodeLoginNullPass, CmnVal.errMsgLoginNullPass);
 		mapErrMsg.put(CmnVal.errCodeAccsessFalse, CmnVal.errMsgAccsessFalse);
+		mapErrMsg.put(CmnVal.errCodeCartFalse, CmnVal.errMsgCartFalse);
 
 		return mapErrMsg.get(errNum);
 	}
