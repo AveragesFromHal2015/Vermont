@@ -79,12 +79,14 @@ public class CmnFnc {
 	//エラー番号によってメッセージを返すメソッド
 	public static String errMsg(int errNum) {
 		HashMap<Integer,String> mapErrMsg = new HashMap<>();
+		mapErrMsg.put(CmnVal.errCode, CmnVal.errMsg);
 		mapErrMsg.put(CmnVal.errCodeLoginFalse, CmnVal.errMsgLoginFalse);
 		mapErrMsg.put(CmnVal.errCodeLoginNullMail, CmnVal.errMsgLoginNullMail);
 		mapErrMsg.put(CmnVal.errCodeLoginNullId, CmnVal.errMsgLoginNullId);
 		mapErrMsg.put(CmnVal.errCodeLoginNullPass, CmnVal.errMsgLoginNullPass);
 		mapErrMsg.put(CmnVal.errCodeAccsessFalse, CmnVal.errMsgAccsessFalse);
 		mapErrMsg.put(CmnVal.errCodeCartFalse, CmnVal.errMsgCartFalse);
+		mapErrMsg.put(CmnVal.errCodeCartDel, CmnVal.errMsgCartDel);
 
 		return mapErrMsg.get(errNum);
 	}
