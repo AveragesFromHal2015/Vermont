@@ -32,7 +32,7 @@ public class SignUpServlet extends HttpServlet {
 		//データ・アクセスクラスを作る
 		Dao d ;	
 		CmnFnc c;
-		User u;
+		User u = new User();
 		ArrayList<Object> user = new ArrayList<>();
 		int[] lengthcheck ={200, 40, 30, 30, 11, 11, 200};
 		
@@ -61,6 +61,7 @@ public class SignUpServlet extends HttpServlet {
 			//null、空白
 			for(int i=0; i < user.size() && errFlg == false; i++){
 				errFlg = CmnFnc.isPrmErr(user.get(i).toString());
+				
 			}
 			if(errFlg){
 				message = "未入力の欄があります。";
