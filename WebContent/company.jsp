@@ -1,14 +1,20 @@
+<%@page import="jp.ac.hal.Cmn.CmnVal"%>
+<%@page import="jp.ac.hal.Cmn.CmnFnc"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("UTF-8"); %>    
+<% 
+request.setCharacterEncoding("UTF-8");
+String title = CmnVal.pageTitleCompany;
+
+%>
 <jsp:include page="header.jsp">
-	<jsp:param name="title" value="会社概要"/>
+	<jsp:param name="title" value="<%= title %>"/>
 	<jsp:param name="filename" value="company"/>
 </jsp:include>
 <div id="contents">
 <section>
 <!-- ↓ページの見出し↓ -->
-<h1>会社概要
+<h1><%= title %>
 <!-- ↓ページの説明↓ -->
 <small>STATIONERYでは皆様のご来店をスタッフ一同お待ちいたしております。</small>
 </h1>
@@ -89,7 +95,6 @@
 </div>
 
 <jsp:include page="navigation.jsp"></jsp:include>
-
 <jsp:include page="footer.jsp">
 	<jsp:param value="title" name="管理者画面"/>
 </jsp:include>
