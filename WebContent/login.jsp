@@ -1,3 +1,4 @@
+<%@page import="jp.ac.hal.Cmn.CmnVal"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>    
@@ -14,11 +15,11 @@
 		<table border="0" align="center" cellspacing="20">
 			<tr>
 				<th>ユーザID:</th>
-				<td><input type="text" name="id" /></td>
+				<td><input type="text" name="<%= CmnVal.FormValId %>" /></td>
 			</tr>
 			<tr>
 				<th>Password:</th>
-				<td><input type="password" name="pass" /></td>
+				<td><input type="password" name="<%= CmnVal.FormValPassword %>" /></td>
 			</tr>
 			<tr>
 				<th>

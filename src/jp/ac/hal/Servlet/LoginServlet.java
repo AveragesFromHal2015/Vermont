@@ -25,9 +25,6 @@ public class LoginServlet extends HttpServlet {
 	
 	private String errURL = "error.jsp";
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//変数の宣言
 		String mailAddress = "";
