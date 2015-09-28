@@ -1,4 +1,4 @@
-package jp.ac.hal.Beans;
+package src.jp.ac.hal.Beans;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,11 +10,19 @@ public class Product {
 	int orderpoint;
 	String orderdate;
 	int orderamount;
-	int stack;
+	int stock;
 	String registration;
 
 
 
+	public Product(int productid, String productname, int price, int stock) {
+		// TODO 自動生成されたコンストラクター・スタブ
+		super();
+		this.productid = productid;
+		this.productname = productname;
+		this.price = price;
+		this.stock = stock;
+	}
 	public void setProductid(int productid) {
 		this.productid = productid;
 	}
@@ -35,7 +43,7 @@ public class Product {
 		this.orderamount = orderamount;
 	}
 	public void setStack(int stack) {
-		this.stack = stack;
+		this.stock = stock;
 	}
 	public void setRegistration(Date Registration) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -60,7 +68,7 @@ public class Product {
 		return orderamount;
 	}
 	public int getStack() {
-		return stack;
+		return stock;
 	}
 	public String getRegistration() {
 		return registration;
