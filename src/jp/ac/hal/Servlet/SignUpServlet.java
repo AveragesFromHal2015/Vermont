@@ -23,7 +23,8 @@ import jp.ac.hal.Dao.Dao;
 public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
- 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ 	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//変数の宣言
 		String url = "";
 		String message = "";

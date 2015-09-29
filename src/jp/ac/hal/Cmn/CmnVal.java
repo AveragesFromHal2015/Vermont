@@ -45,7 +45,11 @@ public class CmnVal {
 	public static final String FormValId = "user_id";
 	public static final String FormValName = "name";
 	public static final String FormValProduct = "pruduct";
+	public static final String FormValLogin = "login";
 	
 	public static final String SessionValCart = "cart";
+	
+	public static final String pageTitleCompany = "会社概要";
+	
 		
 }

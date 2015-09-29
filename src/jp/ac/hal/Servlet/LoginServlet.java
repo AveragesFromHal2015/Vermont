@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import jp.ac.hal.Beans.*;
+import jp.ac.hal.Cmn.CmnFnc;
+import jp.ac.hal.Cmn.CmnVal;
 import jp.ac.hal.Dao.Dao;
 
 /**
@@ -22,19 +25,32 @@ public class LoginServlet extends HttpServlet {
 	
 	private String errURL = "error.jsp";
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//変数の宣言
 		String mailAddress = "";
 		String pass = "";
-		String url = "";
+		String url = "index.jsp";
 		String message = "";
 		boolean errFlg = false;
+		
+		String sql = "select count(*) from company_table where user_id = ? and user_pass=?;";
+		
+		User user = new User();
 
 		//データ・アクセスクラスを作る
-		Dao d ;	
+		Dao d ;
+		
+		//ログインボタン
+		if(request.getParameter("login") != null ){
+			if(user.setUserid(Integer.parseInt(request.getParameter(arg0)))){
+				
+			}
+		}
+		
+		d.ExcuteSql(sql, obj);
+		
+		
+		CmnFnc.cmnForward(response, request, CmnVal.errCode, url);
 
 //		try{
 //			
