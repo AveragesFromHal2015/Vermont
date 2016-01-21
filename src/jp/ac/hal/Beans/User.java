@@ -14,6 +14,38 @@ public class User {
 	private String end_day; //締日
 	private int credit_limit; //与信限度額
 	
+	/**
+	 * @param userid
+	 * @param user_name
+	 * @param user_pass
+	 * @param com_name
+	 * @param com_department
+	 * @param employee_id
+	 * @param user_tel
+	 * @param user_fax
+	 * @param user_address
+	 * @param user_bank
+	 * @param end_day
+	 * @param credit_limit
+	 */
+	public User(int userid, String user_name, String user_pass,
+			String com_name, String com_department, int employee_id,
+			int user_tel, int user_fax, String user_address, int user_bank,
+			String end_day, int credit_limit) {
+		super();
+		this.userid = userid;
+		this.user_name = user_name;
+		this.user_pass = user_pass;
+		this.com_name = com_name;
+		this.com_department = com_department;
+		this.employee_id = employee_id;
+		this.user_tel = user_tel;
+		this.user_fax = user_fax;
+		this.user_address = user_address;
+		this.user_bank = user_bank;
+		this.end_day = end_day;
+		this.credit_limit = credit_limit;
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -86,6 +118,4 @@ public class User {
 	public void setCredit_limit(int credit_limit) {
 		this.credit_limit = credit_limit;
 	}
-	
-
 }
