@@ -8,7 +8,7 @@
 </jsp:include>
 	<h1> <%=name %>さんようこそ</h1>
 	
-	<a href="">法人アカウント管理ページへ</a>
+	<a href="AdminComAccountServlet">法人アカウント管理ページへ</a>
 	<a href="">商品管理ページへ</a>
 	<a href="">見積もり・管理ページへ</a>
 	<a href="">受注データ管理・閲覧ページへ</a>

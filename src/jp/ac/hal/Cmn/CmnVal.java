@@ -51,5 +51,5 @@ public class CmnVal {
 	
 	public static final String pageTitleCompany = "会社概要";
 	
-		
+	
 }

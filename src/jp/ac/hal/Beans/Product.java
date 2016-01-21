@@ -1,4 +1,4 @@
-package src.jp.ac.hal.Beans;
+package jp.ac.hal.Beans;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
