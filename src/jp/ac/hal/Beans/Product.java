@@ -1,4 +1,4 @@
-package src.jp.ac.hal.Beans;
+package jp.ac.hal.Beans;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,16 +12,56 @@ public class Product {
 	int orderamount;
 	int stock;
 	String registration;
+	int maker;
+	int categoryid;
+	String description;
+	String categoryname;
 
 
 
-	public Product(int productid, String productname, int price, int stock) {
-		// TODO 自動生成されたコンストラクター・スタブ
-		super();
+	public Product(int productid, String productname, int price, int orderpoint, String orderdate,
+			int orderamount, int stock, String registration, int categoryid, int maker, String description) {
+		this.productid = productid;
+		this.productname = productname;
+		this.price = price;
+		this.orderpoint = orderpoint;
+		this.orderdate = orderdate;
+		this.orderamount = orderamount;
+		this.stock = stock;
+		this.registration = registration;
+		this.categoryid = categoryid;
+		this.maker = maker;
+		this.description = description;
+
+	}
+	public Product(int productid, String productname, int price, int stock, String categoryname) {
 		this.productid = productid;
 		this.productname = productname;
 		this.price = price;
 		this.stock = stock;
+		this.categoryname = categoryname;
+	}
+	public Product(int productid, String productname, int price) {
+		this.productid = productid;
+		this.productname = productname;
+		this.price = price;
+	}
+	public void setMaker(int maker) {
+		this.maker = maker;
+	}
+	public void setCategory(int categoryid) {
+		this.categoryid = categoryid;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public void setOrderdate(Date orderdate) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		this.orderdate = sdf.format(orderdate);
+	}
+	public void setRegistration(Date registration) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		this.registration = sdf.format(registration);
 	}
 	public void setProductid(int productid) {
 		this.productid = productid;
@@ -35,19 +75,11 @@ public class Product {
 	public void setOrderpoint(int orderpoint) {
 		this.orderpoint = orderpoint;
 	}
-	public void setOrderdate(Date OrderDate) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		this.orderdate = sdf.format(OrderDate);
-	}
 	public void setOrderamount(int orderamount) {
 		this.orderamount = orderamount;
 	}
-	public void setStack(int stack) {
+	public void setStock(int stock) {
 		this.stock = stock;
-	}
-	public void setRegistration(Date Registration) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		this.registration = sdf.format(Registration);
 	}
 	public int getProductid() {
 		return productid;
@@ -67,10 +99,35 @@ public class Product {
 	public int getOrderamount() {
 		return orderamount;
 	}
-	public int getStack() {
+	public int getStock() {
 		return stock;
 	}
 	public String getRegistration() {
 		return registration;
 	}
+	public int getCategoryid() {
+		return categoryid;
+	}
+	public String getCategoryname() {
+		return categoryname;
+	}
+	public void setCategoryname(String categoryname) {
+		this.categoryname = categoryname;
+	}
+	public void setOrderdate(String orderdate) {
+		this.orderdate = orderdate;
+	}
+	public void setRegistration(String registration) {
+		this.registration = registration;
+	}
+	public void setCategoryid(int categoryid) {
+		this.categoryid = categoryid;
+	}
+	public int getMaker() {
+		return maker;
+	}
+	public String getDescription() {
+		return description;
+	}
+
 }

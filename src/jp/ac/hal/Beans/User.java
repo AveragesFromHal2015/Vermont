@@ -13,7 +13,13 @@ public class User {
 	private int user_bank; //銀行No
 	private String end_day; //締日
 	private int credit_limit; //与信限度額
-	
+
+	public User(String user_name, String user_pass) {
+		super();
+		this.user_name = user_name;
+		this.user_pass = user_pass;
+
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -86,6 +92,6 @@ public class User {
 	public void setCredit_limit(int credit_limit) {
 		this.credit_limit = credit_limit;
 	}
-	
+
 
 }

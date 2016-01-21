@@ -1,6 +1,5 @@
 package jp.ac.hal.Beans;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
