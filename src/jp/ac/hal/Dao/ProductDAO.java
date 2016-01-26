@@ -25,11 +25,7 @@ public class ProductDAO {
 	private String userName;
 	/** 接続先パスワード */
 	private String password;
-
-	private ProductDAO() {
-
-	}
-
+	
 	private static ProductDAO instance;
 
 	public static ProductDAO getInstance() {
