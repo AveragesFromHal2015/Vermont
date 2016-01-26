@@ -101,21 +101,7 @@ public class SignUpServlet extends HttpServlet {
 			//転送するMessage
 			message = "電話番号、FAXは数値を入力して下さい"+ e;
 			
-<<<<<<< HEAD
-		}catch(Exception e){
-=======
-		}/*catch(SQLException e){
-
-			//SQLエラーの場合
-			errFlg = true;
-			url = CmnVal.errURL;
-			
-			//転送するMessage
-			message = "データベースエラーが発生しました。"+ e;
-			
-		}*/catch(Exception e){
->>>>>>> 85d75586b7f24eed90ff1812965d9e131b86a10e
-
+		catch(Exception e){
 			//エラーの場合
 			errFlg = true;
 			url = CmnVal.errURL;
@@ -138,6 +124,5 @@ public class SignUpServlet extends HttpServlet {
 				rd.forward(request,response);
 			}
 		}
-	}
 
 }
