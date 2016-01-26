@@ -5,6 +5,7 @@
 	<jsp:param name="title" value="新規会員登録"/>
 	<jsp:param name="filename" value="SignUp"/>
 </jsp:include>
+
 <div id="contents">
 <div>
 <form method="post" action="SignUpServlet" id="SignUpServlet">
