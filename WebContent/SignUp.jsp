@@ -51,8 +51,6 @@
 </form>
 </div>
 </div>
-
-
 <jsp:include page="navigation.jsp"></jsp:include>
 <jsp:include page="footer.jsp">
 	<jsp:param name="title" value="管理者画面"/>
