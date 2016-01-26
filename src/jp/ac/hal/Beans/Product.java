@@ -42,7 +42,7 @@ public class Product {
 	public void setOrderamount(int orderamount) {
 		this.orderamount = orderamount;
 	}
-	public void setStack(int stack) {
+	public void setStack(int stock) {
 		this.stock = stock;
 	}
 	public void setRegistration(Date Registration) {
