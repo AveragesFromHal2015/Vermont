@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String name = (String)request.getAttribute("name");
+	request.setCharacterEncoding("UTF-8");
+	String name = (String)request.getAttribute("user_name");
+//	System.out.println(name);
 %>
 <jsp:include page="header.jsp">
 	<jsp:param value="title" name="管理者画面"/>
 </jsp:include>
-	<h1> <%=name %>さんようこそ</h1>
+	<h1> <%= name%>さんようこそ</h1>
 	
 	<a href="">法人アカウント管理ページへ</a>
 	<a href="">商品管理ページへ</a>

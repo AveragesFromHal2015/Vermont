@@ -9,7 +9,7 @@
 
 <section id="search">
   <!-- ↓↓新商品リリースの見出し↓↓ -->
- <h1>SEARCH
+ <h1>SEARC
   <!-- ↓↓新商品リリースの説明↓↓ -->
  <small>STATIONERYのオススメ商品をご紹介します。</small>
  </h1>
