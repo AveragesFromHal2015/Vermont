@@ -14,20 +14,6 @@ public class User {
 	private String end_day; //締日
 	private int credit_limit; //与信限度額
 	
-	/**
-	 * @param userid
-	 * @param user_name
-	 * @param user_pass
-	 * @param com_name
-	 * @param com_department
-	 * @param employee_id
-	 * @param user_tel
-	 * @param user_fax
-	 * @param user_address
-	 * @param user_bank
-	 * @param end_day
-	 * @param credit_limit
-	 */
 	public User(int userid, String user_name, String user_pass,
 			String com_name, String com_department, int employee_id,
 			int user_tel, int user_fax, String user_address, int user_bank,

@@ -6,7 +6,7 @@
 	<nav>
 	<ul>
 	  <li><a href="index.jsp">ホーム</a></li>
-	  <li><a href="products.jsp">取り扱い商品</a>
+	  <li><a href="ProductListServlet">取り扱い商品</a>
 	    <!-- ↓↓サブカテゴリー↓↓ -->
 	    <ul>
 	      <li><a href="products.jsp#category1">事務用品</a></li>
