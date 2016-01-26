@@ -15,6 +15,7 @@ import jp.ac.hal.Beans.User;
 import jp.ac.hal.Cmn.CmnFnc;
 import jp.ac.hal.Cmn.CmnVal;
 import jp.ac.hal.Dao.Dao;
+import jp.ac.hal.Dao.SignUpDao;
 
 /**
  * Servlet implementation class SignUpServlet
@@ -23,31 +24,32 @@ import jp.ac.hal.Dao.Dao;
 public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
- 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//変数の宣言
 		String url = "";
 		String message = "";
 		boolean errFlg = false;
-
+		SignUpDao d;
 		//データ・アクセスクラスを作る
-		Dao d ;	
 		CmnFnc c;
 		User u = new User();
-		ArrayList<Object> user = new ArrayList<>();
+		ArrayList<Object> user = new ArrayList<Object>();
 		int[] lengthcheck ={200, 40, 30, 30, 11, 11, 200};
 		
+		request.setCharacterEncoding("UTF-8");	
+		
 		try{
-			
+			 d = new SignUpDao();	
+
 			//Userbeanへ追加
-			u.setUser_name(request.getParameter("user_name"));	//DBにユーザネームが無いのでDBに追加しないとダメかも
+			u.setUser_name(request.getParameter("user_name"));
 			u.setUser_pass(request.getParameter("user_pass"));
 			u.setCom_name(request.getParameter("com_name"));
 			u.setCom_department(request.getParameter("com_department"));
 			u.setUser_tel(Integer.parseInt(request.getParameter("user_tel")));
 			u.setUser_fax(Integer.parseInt(request.getParameter("user_fax")));
 			u.setUser_address(request.getParameter("user_address"));
-			
+
 			//arraylistへ格納
 			user.add(u.getUser_name());
 			user.add(u.getUser_pass());
@@ -56,8 +58,8 @@ public class SignUpServlet extends HttpServlet {
 			user.add(u.getUser_tel());
 			user.add(u.getUser_fax());
 			user.add(u.getUser_address());
-			
-			
+
+
 			//エラーチェック
 			//null、空白
 			for(int i=0; i < user.size() && errFlg == false; i++){
@@ -78,7 +80,15 @@ public class SignUpServlet extends HttpServlet {
 					url = CmnVal.errURL;
 				}
 				else{
-					//d.regist(user);//DBへ追加処理
+					if(d.regist(user) == true){
+						errFlg = true;
+						url = CmnVal.errURL;
+						//転送するMessage
+						message = "すでに存在しているIDです。";
+					}
+					else{
+						url = "user.jsp";
+					}
 				}
 			}
 			
@@ -91,7 +101,20 @@ public class SignUpServlet extends HttpServlet {
 			//転送するMessage
 			message = "電話番号、FAXは数値を入力して下さい"+ e;
 			
+<<<<<<< HEAD
 		}catch(Exception e){
+=======
+		}/*catch(SQLException e){
+
+			//SQLエラーの場合
+			errFlg = true;
+			url = CmnVal.errURL;
+			
+			//転送するMessage
+			message = "データベースエラーが発生しました。"+ e;
+			
+		}*/catch(Exception e){
+>>>>>>> 85d75586b7f24eed90ff1812965d9e131b86a10e
 
 			//エラーの場合
 			errFlg = true;
@@ -103,7 +126,9 @@ public class SignUpServlet extends HttpServlet {
 		}finally{
 
 			if(errFlg == false){//エラー無し
-				response.sendRedirect(url);
+				RequestDispatcher rd = request.getRequestDispatcher(url);
+				//リクエストを転送
+				rd.forward(request,response);
 			}else{//エラーあり
 				//Messageをセット
 				request.setAttribute("errorMessage",message);

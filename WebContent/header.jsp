@@ -24,7 +24,6 @@
 	<script src="common/js/signUp.js"></script>
 	<script src="https://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3-https.js" charset="UTF-8"></script>
 	<link href="common/css/styles.css" rel="stylesheet">
-	
 </head>
 <body id="top">
 	<noscript><p id="noscript">このWebサイトはJavaScriptを使用しています。<!--[if lt IE 9]><br>

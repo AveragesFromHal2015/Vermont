@@ -1,6 +1,7 @@
 package jp.ac.hal.Dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,27 +9,37 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
 public class Dao{
-	
+
+public class Dao {
+	private String serverName;
+	private String instanceName;
+	private String userName;
+	private String password;	
 	private static Dao instance;
 	private DataSource ds;
 
-	private Dao() throws NamingException{
-		Context context = new InitialContext();
-		ds = (DataSource)context.lookup("java:comp/env/Oracle_JDBC");
+	protected Dao() throws ClassNotFoundException{
+		this.serverName = "tstdsv03";
+		this.instanceName = "orcl1";
+		this.userName = "ora131";
+		this.password = "ora131";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
 	}
 
-	static public Dao getInstance() throws NamingException{
+	static public Dao getInstance() throws ClassNotFoundException{
 		if(instance == null){
 			instance = new Dao();
 		}
 		return instance;
 	}
 
-	private Connection getConnection(){
+	protected Connection getConnection(){
 		Connection conn=null;
 		try {
-			conn = ds.getConnection();
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@"+ serverName + ":1521:"+instanceName,userName,password);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -52,7 +63,7 @@ public class Dao{
 		return rows;	
 	}
 	
-	private void close(ResultSet rs, PreparedStatement ps, Connection conn) {
+	protected void close(ResultSet rs, PreparedStatement ps, Connection conn) {
 		if(rs!=null){
 			try {
 				rs.close();
