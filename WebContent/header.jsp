@@ -19,6 +19,11 @@
 	<!--[if lt IE 9]>
 	<script src="common/js/html5shiv.js"></script>
 	<![endif]-->
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<!--<![endif]-->
+	<script src="common/js/signUp.js"></script>
+	<script src="https://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3-https.js" charset="UTF-8"></script>
+	<link href="common/css/styles.css" rel="stylesheet">
 </head>
 <body id="top">
 	<noscript><p id="noscript">このWebサイトはJavaScriptを使用しています。<!--[if lt IE 9]><br>
