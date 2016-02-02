@@ -32,7 +32,7 @@ public class SignUpServlet extends HttpServlet {
 		SignUpDao d;
 		//データ・アクセスクラスを作る
 		CmnFnc c;
-		User u = new User();
+		User u = new User(0, message, message, message, message, 0, 0, 0, message, 0, message, 0);
 		ArrayList<Object> user = new ArrayList<Object>();
 		int[] lengthcheck ={200, 40, 30, 30, 11, 11, 200};
 		
@@ -100,7 +100,7 @@ public class SignUpServlet extends HttpServlet {
 
 			//転送するMessage
 			message = "電話番号、FAXは数値を入力して下さい"+ e;
-			
+		}
 		catch(Exception e){
 			//エラーの場合
 			errFlg = true;
