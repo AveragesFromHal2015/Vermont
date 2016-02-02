@@ -1,6 +1,10 @@
 package jp.ac.hal.Servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -9,13 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
-import src.jp.ac.hal.Dao.Dao;
-import src.jp.ac.hal.Beans.Product;
-=======
 import jp.ac.hal.Beans.Product;
 import jp.ac.hal.Dao.ProductDAO;
->>>>>>> 85d75586b7f24eed90ff1812965d9e131b86a10e
 
 /**
  * Servlet implementation class ProductListServlet
@@ -29,7 +28,6 @@ public class ProductListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
 		
 		//商品ID
 		int productid = 0;
@@ -72,7 +70,7 @@ public class ProductListServlet extends HttpServlet {
 						price = rs1.getInt("price");
 						stock = rs1.getInt("stock");
 						//リストに追加
-						list.add(new Product(productid,productname,price,stock));
+						list.add(new Product(productid,productname,price,stock, productname));
 						request.setAttribute("productlist", list);
 						//request.getRequestDispatcher("result.jsp").forward(request, response);
 					}
@@ -86,7 +84,6 @@ public class ProductListServlet extends HttpServlet {
 			}
 			
 			
-=======
 
 		ArrayList<Product> list = new ArrayList<Product>();
 		try{
@@ -98,7 +95,6 @@ public class ProductListServlet extends HttpServlet {
 		}
 		//products.jspへフォワード
 		request.getRequestDispatcher("products.jsp").forward(request, response);
->>>>>>> 85d75586b7f24eed90ff1812965d9e131b86a10e
 	}
 
 

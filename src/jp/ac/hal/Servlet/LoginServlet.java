@@ -34,11 +34,8 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-<<<<<<< HEAD
-		
 //		CmnVal.FormValPassword = request.getParameter("pass");
 		
-=======
 		//変数の宣言
 		String name = "";
 		String pass = "";
@@ -46,8 +43,7 @@ public class LoginServlet extends HttpServlet {
 		int status = 0;
 		ArrayList<User> list = new ArrayList<User>();
 		LoginDao d;	
-		User u = new User();
->>>>>>> 85d75586b7f24eed90ff1812965d9e131b86a10e
+		User u = new User(status, url, url, url, url, status, status, status, url, status, url, status);
 		
 		request.setCharacterEncoding("UTF-8");	
 
