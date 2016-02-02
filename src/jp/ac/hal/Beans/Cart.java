@@ -22,10 +22,10 @@ public class Cart{
 	
 	//cartから消す処理
 	public void deleteProduct(Product...products) {
--		for (int i = 0; i < products.length; i++) {
--			productList.remove(products[i]);
--		}
--	}	
+		for(int i = 0; i < products.length; i++){
+			productList.remove(products[i]);
+		}
+	}	
 	
 	public ArrayList<Product> getAllCart() {
 		return productList;
