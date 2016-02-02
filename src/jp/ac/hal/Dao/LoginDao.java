@@ -14,7 +14,6 @@ public class LoginDao extends Dao{
 
 	public LoginDao() throws ClassNotFoundException, NamingException {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public ArrayList<User> loginSQL(String user_name, String user_pass) {
