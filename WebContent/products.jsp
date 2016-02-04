@@ -38,7 +38,7 @@ Internet Explorer 7／8をお使いの方はJavaScriptをオンにしてご覧�
 
 <header>
 <!-- ↓ロゴ画像↓ -->
-<h1><a href="index.jsp"><img src="img/logo.gif" alt="STATIONERY" width="378" height="79"></a></h1>
+<h1><a href="index.html"><img src="img/logo.gif" alt="STATIONERY" width="378" height="79"></a></h1>
 
 <!-- ↓キャッチコピー↓ -->
 <p>毎日快適！オフィス用品を揃えるならSTATIONERY！</p>
@@ -67,40 +67,14 @@ Internet Explorer 7／8をお使いの方はJavaScriptをオンにしてご覧�
 <img src="img/<%= p.getProductid()%>.jpg" alt="写真：帳薄ファイル" width="150" height="150"/>
 <h1><%out.println(p.getProductname());%></h1></a>
 </br>
-<%out.println(p.getPrice());%>
+<%out.println("$" + p.getPrice());%>
 </br>
+<%out.println("商品概要:");%>
 <p><%out.println(p.getDescription());%></p>
 </article>
 <%}%>
   <!-- ↑↑商品情報1ここまで↑↑ -->
 
-
-
-  <!-- ↓↓商品情報6ここから↓↓ -->
-  <article id="productName6">
-  <img src="img/products06.jpg" alt="写真：プリンタ" width="150" height="150">
-  <h1>プリンタ </h1>
-  <p>ビジネス向けインクジェット複合機で、Wi-Fi/有線LANに対応。外出先や会議室にいても文書やメールのプリント指示ができます。</p>
-  </article>
-  <!-- ↑↑商品情報6ここまで↑↑ -->
-
-  <!-- ↓↓商品情報7ここから↓↓ -->
-  <article id="productName7">
-  <img src="img/products07.jpg" alt="写真：マウス" width="150" height="150">
-  <h1>マウス</h1>
-  <p>最高峰の読み取り性能で、ほとんどの素材に対応！あらゆる場面で優れた操作性を誇るプロ仕様のマウスです。</p>
-  </article>
-  <!-- ↑↑商品情報7ここまで↑↑ -->
-
-  <!-- ↓↓商品情報8ここから↓↓ -->
-  <article id="productName8">
-  <img src="img/products08.jpg" alt="写真：記録媒体" width="150" height="150">
-  <h1>記録媒体</h1>
-  <p>2倍速の繰り返し録画用なブルーレイメディア、8倍速記録対応のDVD-Rディスクなど国産品多数！ </p>
-  </article>
-  <!-- ↑↑商品情報8ここまで↑↑ -->
-
-<!-- ↑カテゴリ2ここまで↑ -->
 
 <!-- ↓ページのはじめに戻るリンク↓ -->
 <p><a href="#top">↑このページのはじめに戻る</a></p>
