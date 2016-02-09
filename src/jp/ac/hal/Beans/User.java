@@ -13,11 +13,26 @@ public class User {
 	private int user_bank; //銀行No
 	private String end_day; //締日
 	private int credit_limit; //与信限度額
-	
+	private String mail_address; //メールアドレス
+	/**
+	 * @param userid
+	 * @param user_name
+	 * @param user_pass
+	 * @param com_name
+	 * @param com_department
+	 * @param employee_id
+	 * @param user_tel
+	 * @param user_fax
+	 * @param user_address
+	 * @param user_bank
+	 * @param end_day
+	 * @param credit_limit
+	 * @param mail_address
+	 */
 	public User(int userid, String user_name, String user_pass,
 			String com_name, String com_department, int employee_id,
 			int user_tel, int user_fax, String user_address, int user_bank,
-			String end_day, int credit_limit) {
+			String end_day, int credit_limit, String mail_address) {
 		super();
 		this.userid = userid;
 		this.user_name = user_name;
@@ -31,6 +46,7 @@ public class User {
 		this.user_bank = user_bank;
 		this.end_day = end_day;
 		this.credit_limit = credit_limit;
+		this.mail_address = mail_address;
 	}
 	public int getUserid() {
 		return userid;
@@ -104,4 +120,11 @@ public class User {
 	public void setCredit_limit(int credit_limit) {
 		this.credit_limit = credit_limit;
 	}
+	public String getMail_address() {
+		return mail_address;
+	}
+	public void setMail_address(String mail_address) {
+		this.mail_address = mail_address;
+	}
+	
 }
