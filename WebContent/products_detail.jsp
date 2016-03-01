@@ -7,6 +7,7 @@
 
 	ArrayList<Product> list;
 	list = (ArrayList)request.getAttribute("list");
+	request.setAttribute("list", list);
 
 %>
 <!DOCTYPE HTML>
@@ -74,12 +75,11 @@ Internet Explorer 7／8をお使いの方はJavaScriptをオンにしてご覧�
 <p><%out.println(p.getStock());%></p>
 </br>
 <p><%out.println(p.getCategoryname());%></p>
-<FORM method="POST" action="CartAddServlet">
+<FORM method="POST" action="OrderServlet">
 <input type="hidden" name= "product" value= <%= p.getProductid() %>>
-<%= session.setAttribute("product", p.getProductid()) %>
 <input type="hidden" name= "productname" value= <%= p.getProductname() %>>
 <input type="hidden" name= "price" value= <%= p.getPrice() %>>
-<INPUT TYPE="submit" name="pagename" value="カートへ追加">
+<INPUT TYPE="submit" name="pagename" value="購入する">
 </form>
 </article>
 <%}%>

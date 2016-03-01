@@ -49,7 +49,7 @@ public class AdminComAccountDelete extends HttpServlet {
 			String password = "ora131";
 			
 			AdminDao adao = new AdminDao(serverName, instanceName, userName, password);
-			User user = new User(user_id, null, null, null, null, 0, 0, 0, null, 0, null, 0);
+			User user = new User(user_id, null, null, null, null, 0, 0, 0, null, 0, null, 0, password);
 			adao.ComAccountDelete(user);
 			request.setAttribute("msg", msg);
 			request.getRequestDispatcher(url).forward(request, response);

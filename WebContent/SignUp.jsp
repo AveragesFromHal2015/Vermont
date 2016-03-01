@@ -13,16 +13,22 @@
 		<form method="post" action="SignUpServlet" id="SignUpServlet">
 			<table>
 				<tr>
-					<th><label for="user_name">名前 <span class="ind">必須</span><br>
-							<span>（全角）</span></label></th>
-					<td><input type="text" name="user_name" id="user_name"
-						placeholder="名前"></td>
+					<th><label for="formMail">メールアドレス<br />(今後のユーザIDとなります)
+							<span class="ind">必須</span><br> <span>（半角英数字）</span></label></th>
+					<td><input type="text" name="formMail" id="formMail"
+						placeholder="メールアドレス"></td>
 				</tr>
 				<tr>
 					<th><label for="user_pass">パスワード <span class="ind">必須</span><br>
 							<span>（半角英数字）</span></label></th>
 					<td><input type="password" name="user_pass" id="user_pass"
 						placeholder="パスワード"></td>
+				</tr>
+				<tr>
+					<th><label for="user_name">名前 <span class="ind">必須</span><br>
+							<span>（全角）</span></label></th>
+					<td><input type="text" name="user_name" id="user_name"
+						placeholder="名前"></td>
 				</tr>
 				<tr>
 					<th><label for="com_name">会社名 <span class="ind">必須</span></label></th>
@@ -58,12 +64,6 @@
 					<th><label for="user_address">住所 <span class="ind">必須</span></label></th>
 					<td><input type="text" name="user_address" id="user_address"
 						placeholder="住所"></td>
-				</tr>
-				<tr>
-					<th><label for="formMail">メールアドレス<br />(今後のユーザIDとなります)
-							<span class="ind">必須</span><br> <span>（半角英数字）</span></label></th>
-					<td><input type="text" name="formMail" id="formMail"
-						placeholder="メールアドレス"></td>
 				</tr>
 			</table>
 			<p>

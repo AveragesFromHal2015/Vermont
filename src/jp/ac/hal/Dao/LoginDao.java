@@ -16,25 +16,21 @@ public class LoginDao extends Dao{
 		super();
 	}
 
-	public ArrayList<User> loginSQL(String user_name, String user_pass) {
+	public boolean loginSQL(String user_name, String user_pass) {
 
-		ArrayList<User> list = new ArrayList<User>();
+		String name = null;
 		Connection conn = null;
-		
+
 		conn = getConnection();
 		try {
-			PreparedStatement ps = conn.prepareStatement("select * from company_table where user_name = ? AND user_pass = ?");
+			PreparedStatement ps = conn.prepareStatement("select user_name from company_table where user_name = ? AND user_pass = ?");
 
 				ps.setString(1,user_name);
 				ps.setString(2,user_pass);
 			ResultSet rs = ps.executeQuery();
 			//結果セットからデータを取り出す
 			while(rs.next()){
-				//リストに追加
-				list.add(new User(rs.getInt("user_id"), rs.getString("user_name"), rs.getString("user_pass")
-						, rs.getString("com_name"), rs.getString("com_department"), rs.getInt("employee_id")
-						, rs.getInt("user_tel"), rs.getInt("user_fax"), rs.getString("user_address")
-						, rs.getInt("user_bank"), rs.getString("end_day"), rs.getInt("credit_limit")));
+				name = rs.getString("user_name");
 			}
 			
 			close(null,ps,conn);
@@ -42,7 +38,11 @@ public class LoginDao extends Dao{
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
+		if(name != null){
+			return true;
+		} else{
+			return false;
+		}
 	}
 
 }

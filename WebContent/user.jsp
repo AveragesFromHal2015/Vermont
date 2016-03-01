@@ -1,13 +1,13 @@
-<%@page import="com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException"%>
-    <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="jp.ac.hal.Beans.User"%>
-<%@ page import= "java.util.ArrayList" %>
-        <%
-		request.setCharacterEncoding("UTF-8");
-    	ArrayList<User> list = null;
-    	list = (ArrayList)request.getAttribute("list");
-        Cookie cookie[] = request.getCookies();
-    %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" import="jp.ac.hal.Beans.User"%>
+<%@ page import="java.util.ArrayList"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String user_name;
+	user_name = (String) request.getAttribute("user_name");
+	Cookie cookie[] = request.getCookies();
+%>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -30,46 +30,50 @@
 </head>
 
 <body id="top">
-<noscript><p id="noscript">このWebサイトはJavaScriptを使用しています。<!--[if lt IE 9]><br>
+	<noscript>
+		<p id="noscript">
+			このWebサイトはJavaScriptを使用しています。
+			<!--[if lt IE 9]><br>
 Internet Explorer 7／8をお使いの方はJavaScriptをオンにしてご覧ください。<![endif]-->
-</p></noscript>
+		</p>
+	</noscript>
 
-<header>
-<!-- ↓ロゴ画像↓ -->
-<h1><a href="index.html"><img src="img/logo.gif" alt="STATIONERY" width="378" height="79"></a></h1>
+	<header>
+		<!-- ↓ロゴ画像↓ -->
+		<h1>
+			<a href="index.jsp"><img src="img/logo.gif" alt="STATIONERY"
+				width="378" height="79"></a>
+		</h1>
 
-</header>
+	</header>
 
-<div id="contents">
-<section>
-<!-- ↓ページの見出し↓ -->
-	<%
-	try{
-		if(cookie != null){
-	    for(int i = 0; i < cookie.length; i++){
-	        if(cookie[i].getName().equals("name")){
-	            out.println(cookie[i].getValue());
-	        }
-	        if(cookie[i].getName().equals("pass")){
-	            out.println(cookie[i].getValue());
-	        }
-	    }
-	}
-		for(User u: list){
-			out.println(u.getUserid() + ":" + u.getUser_name());
-			%><br /><%
-		}
-	}
-	catch(NullPointerException e){
-		out.println("ぬるぽ");
-	}
+	<div id="contents">
+		<section>
+			<!-- ↓ページの見出し↓ -->
+			<%
+				try {
+					if (cookie != null) {
+						for (int i = 0; i < cookie.length; i++) {
+							if (cookie[i].getName().equals("name")) {
+								out.println("name:"+cookie[i].getValue());
+							}
+							if (cookie[i].getName().equals("pass")) {
+								out.println("pass:"+cookie[i].getValue());
+							}
+						}
+					}
+					out.println("test:"+user_name);
+			%><br />
+			<%
+				} catch (NullPointerException e) {
+					out.println("ぬるぽ");
+				}
+			%>
 
-	%>
+		</section>
+	</div>
 
-</section>
-</div>
-
-<jsp:include page="navigation.jsp"></jsp:include>
-<jsp:include page="footer.jsp">
-	<jsp:param name="title" value="管理者画面"/>
-</jsp:include>
+	<jsp:include page="navigation.jsp"></jsp:include>
+	<jsp:include page="footer.jsp">
+		<jsp:param name="title" value="管理者画面" />
+	</jsp:include>

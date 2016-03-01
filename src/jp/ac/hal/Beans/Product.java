@@ -46,6 +46,9 @@ public class Product {
 		this.productname = productname;
 		this.price = price;
 	}
+	public Product() {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
 	public void setMaker(int maker) {
 		this.maker = maker;
 	}

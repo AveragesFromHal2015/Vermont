@@ -48,6 +48,9 @@ public class User {
 		this.credit_limit = credit_limit;
 		this.mail_address = mail_address;
 	}
+	public User() {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
 	public int getUserid() {
 		return userid;
 	}

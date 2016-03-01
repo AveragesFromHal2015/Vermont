@@ -126,7 +126,7 @@ public class AdminDao {
 						user_address,
 						user_bank,
 						end_day,
-						credit_limit
+						credit_limit, end_day
 						));
 			}
 		}catch (SQLException e) {
@@ -200,7 +200,7 @@ public class AdminDao {
 						user_address,
 						user_bank,
 						end_day,
-						credit_limit
+						credit_limit, end_day
 						));
 			}
 		} catch (SQLException e) {

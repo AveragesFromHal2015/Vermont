@@ -33,7 +33,7 @@ public class SignUpServlet extends HttpServlet {
 		SignUpDao d;
 		// データ・アクセスクラスを作る
 		CmnFnc c;
-		User u = new User(0, message, message, message, message, 0, 0, 0, message, 0, message, 0, message);
+		User u = new User();
 		ArrayList<Object> user = new ArrayList<Object>();
 		int[] lengthcheck = { 200, 40, 30, 30, 11, 11, 200 };
 

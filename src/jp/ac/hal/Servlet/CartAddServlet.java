@@ -23,15 +23,14 @@ public class CartAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String product_id = request.getParameter("product_id");
-		request.setAttribute("product_id",product_id);
+
 		Cart cart = CmnFnc.getSessionCart(request);
 		
-		Product product = CmnFnc.getProduct(request);
+		String product = CmnFnc.getProduct(request);
 		int status = 0;
 		if(product != null){
 			cart.addCart(product);
+			System.out.println(cart);
 		}else{
 			status = CmnVal.errCodeCartFalse;
 		}

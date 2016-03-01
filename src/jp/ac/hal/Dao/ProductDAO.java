@@ -30,7 +30,12 @@ public class ProductDAO {
 
 	public static ProductDAO getInstance() {
 		if (instance == null) {
-			instance = new ProductDAO();
+			try {
+				instance = new ProductDAO("tstdsv03","orcl1","ora131","ora131");
+			} catch (ClassNotFoundException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 		}
 		return instance;
 	}
@@ -147,4 +152,58 @@ public class ProductDAO {
 
 		return list;
 	}
+
+	public ArrayList<Product> selectlist() {
+		//商品ID
+		int productid = 0;
+		//商品名
+		String productname = "";
+		//価格
+		int price = 0;
+		//在庫数
+		int stock = 0;
+		//ページ数
+		int pageNo = 0;
+		//全件数
+		int pageDisp = 0;
+
+		ArrayList<Product> list = new ArrayList<Product>();
+		try (
+				// Oracleコネクション
+				Connection conn = getConnection();
+				// SQLクラス(全件データ取得)
+				PreparedStatement ps1 = conn.prepareStatement("select * from product_table ORDER BY product_id");
+				// SQLを実行し結果をセット
+				ResultSet rs1 = ps1.executeQuery();
+				//SQLクラス(件数取得)
+				PreparedStatement ps2 = conn.prepareStatement("select count(*) from product_table order by product_id");
+				//SQL実行結果をセット
+				ResultSet rs2 = ps2.executeQuery();
+			){
+				//全件数取得
+				if(rs2.next()){
+					pageDisp = rs2.getInt("count(*)");
+					//全件から表示件数で割ってページ数を求める
+					while(pageDisp >= 30){
+						pageNo++;
+						pageDisp = pageDisp -30;
+					}
+				}
+				// 結果セットからデータを取り出す
+				while (rs1.next()) {
+					productid = rs1.getInt("product_id");
+					productname = rs1.getString("product_name");
+					price = rs1.getInt("price");
+					stock = rs1.getInt("stock");
+					//リストに追加
+					list.add(new Product(productid,productname,price,stock, productname));
+					//request.getRequestDispatcher("result.jsp").forward(request, response);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		return list;
+	}
+	
+	
 }

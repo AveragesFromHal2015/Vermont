@@ -27,25 +27,23 @@ public class SignUpDao extends Dao {
 		// 取り出し
 		try {
 
+			String user_name = (String) user.get(0);
+			
 			conn = getConnection();
-			ps = conn.prepareStatement("select user_name from company_table");
 
+			ps = conn.prepareStatement("select user_name from company_table where ?");
+
+			ps.setString(1,user_name);
 			// SQLを実行し結果セットを取得
 			ResultSet rs = ps.executeQuery();
 			// 結果セットからデータを取り出す
-			while (rs.next()) {
-				// リストに追加
-				list.add(rs.getString("user_name"));
-			}
+				while (rs.next()) {
+					// リストに追加
+					list.add(rs.getString("user_name"));
+					rows ++;
+				}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-
-		// エラー検知
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).equals(user.get(0))) {
-				rows = -1;
-			}
 		}
 
 		// insert処理

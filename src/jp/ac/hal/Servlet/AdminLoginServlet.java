@@ -13,10 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.catalina.Session;
 
-import sun.security.ec.ECDHKeyAgreement;
-
-import com.sun.org.apache.bcel.internal.generic.D2F;
-
 import jp.ac.hal.Beans.Admin;
 import jp.ac.hal.Cmn.CmnFnc;
 import jp.ac.hal.Cmn.CmnVal;

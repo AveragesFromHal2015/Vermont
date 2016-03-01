@@ -66,7 +66,7 @@ public class AdminComAccountEdit extends HttpServlet {
 		String password = "ora131";
 		
 		AdminDao adao = new AdminDao(serverName, instanceName, userName, password);
-		User user = new User(user_id, user_name, user_pass, com_name, com_department, employee_id, user_tel, user_fax, user_address, user_bank, end_day, credit_limit);
+		User user = new User(user_id, user_name, user_pass, com_name, com_department, employee_id, user_tel, user_fax, user_address, user_bank, end_day, credit_limit, password);
 		
 		adao.ComAccountEdit(user);
 		msg = "変更しました";
