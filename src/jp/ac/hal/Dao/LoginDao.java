@@ -4,45 +4,41 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.naming.NamingException;
 
-import jp.ac.hal.Beans.User;
+public class LoginDao extends Dao {
 
-public class LoginDao extends Dao{
+	private Connection conn = null;
+	private PreparedStatement ps = null;
+	private ResultSet rs = null;
 
 	public LoginDao() throws ClassNotFoundException, NamingException {
 		super();
 	}
 
-	public ArrayList<User> loginSQL(String user_name, String user_pass) {
+	// ログイン処理
+	public int loginSQL(String mail_address, String user_pass) {
+		int i = 0;
 
-		ArrayList<User> list = new ArrayList<User>();
-		Connection conn = null;
-		
-		conn = getConnection();
+		String sql = "select count(*) from company_table where mailaddress = ? and password = ?";
+
 		try {
-			PreparedStatement ps = conn.prepareStatement("select * from company_table where user_name = ? AND user_pass = ?");
+			conn = getConnection();
+			ps = conn.prepareStatement(sql);
 
-				ps.setString(1,user_name);
-				ps.setString(2,user_pass);
-			ResultSet rs = ps.executeQuery();
-			//結果セットからデータを取り出す
-			while(rs.next()){
-				//リストに追加
-				list.add(new User(rs.getInt("user_id"), rs.getString("user_name"), rs.getString("user_pass")
-						, rs.getString("com_name"), rs.getString("com_department"), rs.getInt("employee_id")
-						, rs.getInt("user_tel"), rs.getInt("user_fax"), rs.getString("user_address")
-						, rs.getInt("user_bank"), rs.getString("end_day"), rs.getInt("credit_limit")));
-			}
-			
-			close(null,ps,conn);
-		}
-		catch (SQLException e) {
+			ps.setString(1, mail_address);
+			ps.setString(2, user_pass);
+
+			rs = ps.executeQuery();
+
+			i = rs.getInt("count(*)");
+
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(rs, ps, conn);
 		}
-		return list;
+		return i;
 	}
-
 }

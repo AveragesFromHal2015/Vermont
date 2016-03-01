@@ -51,7 +51,7 @@ public class AdminComAccountDetail extends HttpServlet {
 		try{
 			AdminDao adao = new AdminDao(serverName, instanceName, userName, password);
 			
-			User user = new User(user_id, null, null, null, null, 0, 0, 0, null, 0, null, 0);
+			User user = new User(user_id, null, null, null, null, 0, 0, 0, null, 0, null, 0, password);
 			
 			ArrayList<User> list = adao.ComAccountDetail(user);
 			
