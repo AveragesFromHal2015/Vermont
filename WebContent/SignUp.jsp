@@ -47,6 +47,14 @@
 						placeholder="FAX" maxlength="11"></td>
 				</tr>
 				<tr>
+					<th><label for="userPostalCode">郵便番号<br> <span>（半角数字・ハイフンあり）</span></label></th>
+					<td><input type="text" name="userPostalCode" size="10"
+						maxlength="8"
+						onKeyUp="AjaxZip3.zip2addr(this,'','user_address','user_address');"
+						id="user_address" placeholder="郵便番号"></td>
+				</tr>
+
+				<tr>
 					<th><label for="user_address">住所 <span class="ind">必須</span></label></th>
 					<td><input type="text" name="user_address" id="user_address"
 						placeholder="住所"></td>
