@@ -49,16 +49,19 @@ public class LoginServlet extends HttpServlet {
 				int res = dao.loginSQL(mailaddress, password);
 
 				if (res == 1) {
+					//ログイン成功
+					//クッキーかセッションにユーザ情報保存
 					session.setAttribute("", mailaddress);
+					sendURL = "index.jsp";
 				}
-
+				
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			sendURL = ".jsp";
+			sendURL = "SignUp.jsp";
 		} catch (NamingException e) {
 			e.printStackTrace();
-			sendURL = ".jsp";
+			sendURL = "SignUp.jsp";
 		} finally {
 			request.setAttribute("errMsg", errMsg);
 		}
