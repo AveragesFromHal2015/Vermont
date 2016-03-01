@@ -5,9 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.naming.NamingException;
-
 import jp.ac.hal.Beans.User;
 
 public class SignUpDao extends Dao {
