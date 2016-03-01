@@ -13,12 +13,12 @@
 	<form action="LoginServlet" method="post">
 		<table border="0" align="center" cellspacing="20">
 			<tr>
-				<th>ユーザID:</th>
-				<td><input type="text" name="user_name" /></td>
+				<th>ユーザID（メールアドレス）:</th>
+				<td><input type="text" name="mail_address" /></td>
 			</tr>
 			<tr>
 				<th>Password:</th>
-				<td><input type="password" name="password" /></td>
+				<td><input type="password" name="user_pass" /></td>
 			</tr>
 			<tr>
 				<th>
