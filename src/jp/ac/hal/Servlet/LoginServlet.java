@@ -4,15 +4,18 @@
 package jp.ac.hal.Servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import jp.ac.hal.Beans.User;
 import jp.ac.hal.Cmn.CmnFnc;
 import jp.ac.hal.Cmn.CmnVal;
 import jp.ac.hal.Dao.LoginDao;
@@ -23,8 +26,6 @@ import jp.ac.hal.Dao.LoginDao;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
-
 	private String errURL = "error.jsp";
 
 	/**
@@ -40,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 		String pass = "";
 		String url = "index.jsp";
 		int status = 0;
-		boolean lc = false;
+		int user_id = -1;
 		ArrayList<User> list = new ArrayList<User>();
 		LoginDao d;
 
@@ -50,37 +51,40 @@ public class LoginServlet extends HttpServlet {
 		try {
 			d = new LoginDao();
 			// セッション取得
-			name = request.getParameter("user_name");
-			pass = request.getParameter("password");
+			name = request.getParameter("mail_address");
+			pass = request.getParameter("user_pass");
 
 			// ユーザ名、パスワードが空欄、nullでない
 			if (CmnFnc.isPrmErr(name) == false && CmnFnc.isPrmErr(pass) == false) {
-				lc = d.loginSQL(name, pass);
+				user_id = d.loginSQL(name, pass);
 				// ログイン可能なら
-				if (lc == true) {
+				if (user_id > -1) {
 					HttpSession session = request.getSession(true);
 
 					// セッションの削除
 					// session.removeAttribute("mailAddress");
-					// session.removeAttribute("id");
+					session.removeAttribute("user_id");
 					session.removeAttribute("name");
 
 					// セッションの保存
 					// session.setAttribute("mailAddress", mailAddress);
+					session.setAttribute("user_id", user_id);
 					session.setAttribute("name", name);
-					// session.setAttribute("id", d.getUserName());
 
-						// cookieの保存
-						Cookie userCookie = new Cookie("name", name);
-						Cookie passCookie = new Cookie("pass", pass);
+					// cookieの保存
+					Cookie userIdCookie = new Cookie("user_id", String.valueOf(user_id));
+					Cookie userCookie = new Cookie("name", name);
+					Cookie passCookie = new Cookie("pass", pass);
 
-						// クッキーの有効時間設定(有効期間1週間)
-						userCookie.setMaxAge(7 * 24 * 60 * 60);// userCookieオブジェクトの有効時間設定
-						passCookie.setMaxAge(7 * 24 * 60 * 60);// passCookieオブジェクトの有効時間設定
+					// クッキーの有効時間設定(有効期間1週間)
+					userIdCookie.setMaxAge(7 * 24 * 60 * 60);
+					userCookie.setMaxAge(7 * 24 * 60 * 60);// userCookieオブジェクトの有効時間設定
+					passCookie.setMaxAge(7 * 24 * 60 * 60);// passCookieオブジェクトの有効時間設定
 
-						// クッキーをクライアントに作成する
-						response.addCookie(userCookie);// userCookieオブジェクトのクッキーをクライアントに作成
-						response.addCookie(passCookie);// passCookieオブジェクトのクッキーをクライアントに作成
+					// クッキーをクライアントに作成する
+					response.addCookie(userIdCookie);
+					response.addCookie(userCookie);// userCookieオブジェクトのクッキーをクライアントに作成
+					response.addCookie(passCookie);// passCookieオブジェクトのクッキーをクライアントに作成
 
 
 					// ログイン処理
@@ -127,52 +131,8 @@ public class LoginServlet extends HttpServlet {
 			// request.setAttribute("message","エラー");
 		} finally {
 			CmnFnc.cmnForward(response, request, status, url); // 送る処理
-=======
-
-	private String errMsg = "";
-	private String sendURL = "";
-
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response, HttpSession session)
-			throws ServletException, IOException {
-
-		// ユーザID（メールアドレス）、パスワード login.jsp から取得
-		String mailaddress = request.getParameter("mail_address");
-		String password = request.getParameter("user_pass");
-
-		try {
-			if (CmnFnc.isPrmErr(mailaddress)) {
-				// 空ならエラーメッセージ
-				errMsg = CmnVal.errMsgLoginNullMail;
-			}
-			if (CmnFnc.isPrmErr(password)) {
-				// 空ならエラーメッセージ
-				errMsg = errMsg + CmnVal.errMsgLoginNullPass;
-			} else {
-				LoginDao dao;
-				dao = new LoginDao();
-				int res = dao.loginSQL(mailaddress, password);
-
-				if (res == 1) {
-					//ログイン成功
-					//クッキーかセッションにユーザ情報保存
-					session.setAttribute("", mailaddress);
-					sendURL = "index.jsp";
-				}
-				
-			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			sendURL = "SignUp.jsp";
-		} catch (NamingException e) {
-			e.printStackTrace();
-			sendURL = "SignUp.jsp";
-		} finally {
-			request.setAttribute("errMsg", errMsg);
->>>>>>> 1d7c38ce0c0e9725edeb0d470e175163ac6cacba
 		}
 
-		request.getRequestDispatcher(sendURL).forward(request, response);
 	}
 
 }

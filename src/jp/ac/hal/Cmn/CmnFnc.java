@@ -73,13 +73,8 @@ public class CmnFnc {
 	 * @param request
 	 * @return 別Servletから送られてきたProductの値
 	 */
-<<<<<<< HEAD
 	public static String getProduct(HttpServletRequest request) {
 		return request.getParameter(CmnVal.FormValProduct);
-=======
-	public static Product getProduct(HttpServletRequest request) {
-		return (Product) request.getAttribute(CmnVal.FormValProduct);
->>>>>>> 1d7c38ce0c0e9725edeb0d470e175163ac6cacba
 	}
 
 	/**

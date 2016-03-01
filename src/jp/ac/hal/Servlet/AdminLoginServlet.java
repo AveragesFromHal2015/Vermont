@@ -7,11 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
-import org.apache.catalina.Session;
-
-=======
->>>>>>> 1d7c38ce0c0e9725edeb0d470e175163ac6cacba
 import jp.ac.hal.Beans.Admin;
 import jp.ac.hal.Cmn.CmnFnc;
 import jp.ac.hal.Dao.AdminDao;
