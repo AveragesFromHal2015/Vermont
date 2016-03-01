@@ -76,9 +76,12 @@ Internet Explorer 7／8をお使いの方はJavaScriptをオンにしてご覧�
 </br>
 <p><%out.println(p.getCategoryname());%></p>
 <FORM method="POST" action="OrderServlet">
-<input type="hidden" name= "product" value= <%= p.getProductid() %>>
-<input type="hidden" name= "productname" value= <%= p.getProductname() %>>
+<input type="hidden" name= "product" value= <%= p.getProductid() %>><br>
+品数<input type="text" name="order_num">
 <input type="hidden" name= "price" value= <%= p.getPrice() %>>
+請求書発行有無<br>
+<input type="radio" name="bill" value="1">有り
+<input type="radio" name="bill" value="0">無し
 <INPUT TYPE="submit" name="pagename" value="購入する">
 </form>
 </article>

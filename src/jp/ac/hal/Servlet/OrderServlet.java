@@ -27,6 +27,9 @@ public class OrderServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		request.setCharacterEncoding("UTF-8");
+		request.getParameter("");
 	}
 
 	/**
